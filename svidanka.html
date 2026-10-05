@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Маши ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        overflow: hidden;
+        font-family: "Georgia", serif;
+        background:
+            radial-gradient(circle at 20% 20%, #fff0f5 0%, transparent 35%),
+            radial-gradient(circle at 80% 80%, #ffdce8 0%, transparent 40%),
+            linear-gradient(135deg, #fff7fa, #ffe6ef);
+        color: #6b3046;
+    }
+
+    .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px;
+        position: relative;
+    }
+
+    .card {
+        width: min(520px, 100%);
+        padding: 45px 30px;
+        text-align: center;
+        background: rgba(255,255,255,.72);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,.9);
+        border-radius: 30px;
+        box-shadow: 0 20px 70px rgba(160, 65, 100, .18);
+        animation: appear 1.2s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .small-heart {
+        font-size: 38px;
+        animation: heartbeat 1.5s infinite;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: clamp(32px, 8vw, 52px);
+        color: #a83d64;
+        margin-bottom: 18px;
+    }
+
+    .question {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 28px;
+    }
+
+    .details {
+        background: rgba(255, 225, 235, .65);
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px 0 30px;
+        font-size: 18px;
+        line-height: 1.9;
+    }
+
+    .details strong {
+        color: #9b3159;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    button {
+        border: none;
+        padding: 15px 28px;
+        border-radius: 50px;
+        font-size: 17px;
+        font-family: inherit;
+        cursor: pointer;
+        transition: .3s ease;
+    }
+
+    .yes {
+        background: linear-gradient(135deg, #d94f7b, #b72e5d);
+        color: white;
+        box-shadow: 0 8px 20px rgba(183,46,93,.25);
+    }
+
+    .yes:hover {
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 12px 25px rgba(183,46,93,.35);
+    }
+
+    .think {
+        background: white;
+        color: #a83d64;
+        border: 1px solid #f1b5c9;
+    }
+
+    .think:hover {
+        transform: translateY(-3px);
+    }
+
+    .signature {
+        margin-top: 30px;
+        font-size: 18px;
+        font-style: italic;
+    }
+
+    .floating-heart {
+        position: fixed;
+        bottom: -30px;
+        font-size: 22px;
+        opacity: .7;
+        animation: floatUp linear forwards;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .success {
+        display: none;
+    }
+
+    .success h2 {
+        font-size: 39px;
+        color: #a83260;
+        margin-bottom: 20px;
+    }
+
+    .success p {
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+    .date-big {
+        font-size: 48px;
+        color: #c33d6c;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+
+    .back {
+        margin-top: 25px;
+        background: transparent;
+        color: #a83d64;
+        font-size: 14px;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(25px) scale(.96);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    @keyframes floatUp {
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .card {
+            padding: 35px 20px;
+        }
+
+        .question {
+            font-size: 19px;
+        }
+
+        .details {
+            font-size: 16px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="card">
+
+        <!-- Первый экран -->
+        <div id="invite">
+
+            <div class="small-heart">❤️</div>
+
+            <h1>Маша</h1>
+
+            <div class="question">
+                У меня к тебе один очень важный вопрос...
+                <br><br>
+                <strong>Пойдёшь со мной на свидание?</strong> 🥰
+            </div>
+
+            <div class="details">
+                📅 <strong>8 октября</strong><br>
+                🕔 примерно <strong>17:00–18:00</strong><br>
+                🍷 уютный ресторан<br>
+                🌹 только ты и я
+            </div>
+
+            <div class="buttons">
+                <button class="yes" onclick="sayYes()">
+                    Да ❤️
+                </button>
+
+                <button class="think" onclick="sayYes()">
+                    Конечно 🥰
+                </button>
+            </div>
+
+            <div class="signature">
+                Твой Кирилл ❤️
+            </div>
+
+        </div>
+
+
+        <!-- Экран после согласия -->
+        <div id="success" class="success">
+
+            <div class="small-heart">💗</div>
+
+            <h2>Я очень рад! 🥹</h2>
+
+            <p>
+                Тогда всё решено...
+            </p>
+
+            <div class="date-big">
+                8 октября ❤️
+            </div>
+
+            <p>
+                Только ты и я.<br>
+                Хороший ресторан.<br>
+                И один очень приятный вечер ✨
+            </p>
+
+            <br>
+
+            <p>
+                Обещаю, будет красиво 🌹
+            </p>
+
+            <div class="signature">
+                С любовью, Кирилл ❤️
+            </div>
+
+            <button class="back" onclick="goBack()">
+                ← Вернуться
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function sayYes() {
+    document.getElementById("invite").style.display = "none";
+    document.getElementById("success").style.display = "block";
+
+    // Много сердечек после согласия
+    for (let i = 0; i < 45; i++) {
+        setTimeout(createHeart, i * 80);
+    }
+}
+
+function goBack() {
+    document.getElementById("success").style.display = "none";
+    document.getElementById("invite").style.display = "block";
+}
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+
+    const hearts = ["❤️", "💗", "💕", "💖", "🌸", "💞"];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+
+// Постоянно появляются небольшие сердечки
+setInterval(() => {
+
+    if (Math.random() > .35) {
+        createHeart();
+    }
+
+}, 900);
+
+</script>
+
+</body>
+</html>
